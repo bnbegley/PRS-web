@@ -1,0 +1,49 @@
+<div class='component-content'>
+    <div class='lefthalf'>
+      <span class='component-title'>{{title}} </span>
+      <!-- <span *ngIf='loggedInUser.admin'><a routerLink='/request/create'> -->
+      <span><a routerLink='/request/create'>
+          <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New'></a>
+      </span>
+    </div>
+  </div>
+  <p *ngIf='!requests'>Loading ...</p>
+  <table class="table table-sm" *ngIf='requests'>
+    <tr>
+      <th class='table-secondary'></th>
+      <th class="table-secondary text-center"><a class="btn btn-link font-weight-bold"
+          (click)="sortBy('name')"><u>Description</u></a></th>
+      <th class="table-secondary text-center"><a class="btn btn-link font-weight-bold"
+          (click)="sortBy('price')"><u>Justification</u></a></th>
+      <th class="table-secondary text-center"><a class="btn btn-link font-weight-bold"
+          (click)="sortBy('unit')"><u>Rejection Reason</u></a></th>
+      <th class="table-secondary text-center"><a class="btn btn-link font-weight-bold"
+          (click)="sortBy('vendor')"><u>Delivery Mode</u></a></th>
+      <th class="table-secondary text-center"><a class="btn btn-link font-weight-bold"
+          (click)="sortBy('vendor')"><u>Status</u></a></th>
+      <th class="table-secondary text-center"><a class="btn btn-link font-weight-bold"
+          (click)="sortBy('vendor')"><u>Total</u></a></th>
+      <th class="table-secondary text-center"><a class="btn btn-link font-weight-bold"
+          (click)="sortBy('vendor')"><u>User</u></a></th>
+      <th class="table-secondary text-center"><a class='btn btn-link font-weight-bold'>Action</a></th>
+    </tr>
+    <tr *ngFor='let request of requests | sort:sortCriteria:sortOrder'>
+      <td></td>
+      
+      <td class = "text-center">{{request.description}}</td>
+      <td class = "text-center">{{request.justification}}</td>
+      <td class = "text-center">{{request.rejectionReason}}</td>
+      <td class = "text-center">{{request.deliveryMode}}</td>
+      <td class = "text-center">{{request.status}}</td>
+      <td class = "text-center">{{request.total  | currency}}</td>
+      <td class = "text-center">{{request.user.username}}</td>
+      <td class='actions text-center'>
+        <a routerLink='/request/detail/{{request.id}}' style='padding-left: 16px' class='actionIcon'><img
+            src='assets/details.png' width='20' height='20' title='Detail'></a>
+        <!-- <a *ngIf='loggedInUser.admin' routerLink='/request/edit/{{request.id}}' class='actionIcon'><img -->
+        <a routerLink='/request/edit/{{request.id}}' class='actionIcon'><img
+            src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
+      </td>
+    </tr>
+  </table>
+  

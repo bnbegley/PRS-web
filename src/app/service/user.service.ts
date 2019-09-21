@@ -10,11 +10,12 @@ import { User } from '@model/user.class';
 })
 export class UserService {
 url: string = 'http://localhost:49951/api/UsersAPI/';
+user: User;
   constructor(private http: HttpClient) {
 
   }
   login(uname: string, pwd:string): Observable<User>{
-    return this.http.get(this.url+'/'+uname+'/'+pwd) as Observable<User>;
+    return this.http.get(this.url +uname+'/'+pwd) as Observable<User>;
   }
   list(): Observable<User[]> {
     return this.http.get(this.url) as Observable<User[]>;

@@ -20,6 +20,16 @@ import { ProductListComponent } from './feature/product/product-list/product-lis
 import { ProductCreateComponent } from './feature/product/product-create/product-create.component';
 import { ProductEditComponent } from './feature/product/product-edit/product-edit.component';
 import { ProductDetailComponent } from './feature/product/product-detail/product-detail.component';
+import { RequestLineCreateComponent } from './feature/request-line/request-line-create/request-line-create.component';
+import { RequestLineEditComponent } from './feature/request-line/request-line-edit/request-line-edit.component';
+import { RequestLineDetailComponent } from './feature/request-line/request-line-detail/request-line-detail.component';
+import { RequestLineListComponent } from './feature/request-line/request-line-list/request-line-list.component';
+import { RequestListComponent } from './feature/request/request-list/request-list.component';
+import { RequestDetailComponent } from './feature/request/request-detail/request-detail.component';
+import { RequestCreateComponent } from './feature/request/request-create/request-create.component';
+import { RequestEditComponent } from './feature/request/request-edit/request-edit.component';
+import { UserAuthenticationComponent } from './feature/user/user-authentication/user-authentication.component';
+import { VendorService } from '@svc/vendor.service';
 
 
 
@@ -39,7 +49,16 @@ import { ProductDetailComponent } from './feature/product/product-detail/product
     ProductListComponent,
     ProductCreateComponent,
     ProductEditComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    RequestLineCreateComponent,
+    RequestLineEditComponent,
+    RequestLineDetailComponent,
+    RequestLineListComponent,
+    RequestListComponent,
+    RequestDetailComponent,
+    RequestCreateComponent,
+    RequestEditComponent,
+    UserAuthenticationComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +67,8 @@ import { ProductDetailComponent } from './feature/product/product-detail/product
     FormsModule
   ],
   providers: [
-    UserService
+    UserService,
+    VendorService
     
   ],
   bootstrap: [AppComponent]

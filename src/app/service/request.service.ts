@@ -10,7 +10,9 @@ import { Request } from '@model/request.class';
 })
 export class RequestService {
 url: string = 'http://localhost:49951/api/RequestsAPI/';
-  constructor(private http: HttpClient) {
+  constructor(
+    private http: HttpClient
+    ) {
 
   }
   
@@ -20,13 +22,13 @@ url: string = 'http://localhost:49951/api/RequestsAPI/';
   get(id: number): Observable<Request> {
     return this.http.get(this.url+id) as Observable<Request>;
   }
-  create(request: Request): Observable<any[]> {
-    return this.http.post(this.url ,request) as Observable<Request[]>;
+  create(request: Request): Observable<any> {
+    return this.http.post(this.url ,request) as Observable<Request>;
 }
 edit(request:Request): Observable<any>{
   return this.http.put(this.url+request.id, request) as Observable<any>;
 }
 delete(id:number): Observable<any> {
-        return this.http.delete(this.url+id);
+      return this.http.delete(this.url+id);
 }
 }

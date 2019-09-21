@@ -10,12 +10,11 @@ import { Vendor } from '@model/vendor.class';
 })
 export class VendorCreateComponent implements OnInit {
 vendor: Vendor = new Vendor();
-title: string = 'Vendor Create'
+title: string = 'Vendor Create';
   constructor(private vendorSvc: VendorService,
               private router: Router) { }
 
   ngOnInit() {
-
   }
 
   create(){ 

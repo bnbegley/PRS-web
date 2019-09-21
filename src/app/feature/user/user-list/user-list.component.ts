@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '@svc/user.service';
 import { User } from '@model/user.class';
+import { SystemService } from '@svc/system.service';
 
 @Component({
   selector: 'app-user-list',
@@ -12,9 +13,15 @@ users: User[];
 sortCriteria = 'username';
 sortOrder = 'asc';
 title: string = 'User List';
-  constructor(private userSvc: UserService) { }
+loggedInUser: User;
+  constructor(private userSvc: UserService,
+    private sysSvc: SystemService) { }
 
-  ngOnInit() { //populate list of users
+  ngOnInit() {
+    //check sysservice for logged in user
+    this.loggedInUser = this.sysSvc.data.user.instance;
+    console.log("Logged in user: " +this.loggedInUser.username);
+    //populate list of users
     this.userSvc.list().subscribe(
       resp =>{
         console.log(resp);
