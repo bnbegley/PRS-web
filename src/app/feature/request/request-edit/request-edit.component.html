@@ -1,1 +1,45 @@
-<p>request-edit works!</p>
+<div class='component-content'>
+    <div>
+      <span class='component-title'>{{title}}  |  </span>
+      <span><a routerLink='/request/list'>Back to list</a></span>
+    </div>
+    <p *ngIf='!request'>Loading...</p>
+  
+    <div *ngIf='request'>
+    <div>
+    </div>
+    <hr />
+      <div class="form-group row">
+        <label class='col-form-label col-sm-2' for="partnbr">Request: </label>
+        <input [(ngModel)]='request.description' name='PartNumber' type="text" class="form-control col-sm-6" id="partnbr"
+          aria-describedby="pnumberHelp" placeholder="Request">
+        <small id="pnumberHelp" class="form-text text-muted col-sm-2">Request</small>
+      </div>
+      <hr />
+      <div class="form-group row">
+        <label class='col-form-label col-sm-2' for="requestname">Justfication:</label>
+        <input [(ngModel)]='request.justification' name='ProductName' type="text" class="form-control col-sm-6" id="requestname"
+          aria-describedby="pnameHelp" placeholder="Justfication">
+        <small id="pnameHelp" class="form-text text-muted col-sm-2">Justification</small>
+      </div>
+      <hr />
+        <div class="form-group row">
+                <label class='col-form-label col-sm-2' for="requestprice">Devlivery Mode:</label>
+                <select [(ngModel)]='request.deliveryMode' name='DeliveryMode' class="form-control col-sm-6" id="requestprice"
+                  aria-describedby="emailHelp" placeholder="DeliveryMode">
+                  <option value="Delivery">Delivery</option>
+                  <option value="Pickup">Pickup</option></select>
+                <small id="emailHelp" class="form-text text-muted col-sm-2">Delivery Mode</small>
+        </div>
+      <hr />
+      <div class='form-group'>
+        <button (click)='edit()' class='btn btn-primary'>Update</button>
+        <div>
+                <span><a routerLink='/requestline/create'>
+                    <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New'></a>
+                </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  

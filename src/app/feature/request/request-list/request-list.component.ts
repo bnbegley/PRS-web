@@ -10,12 +10,14 @@ import {Request} from '@model/request.class'
 export class RequestListComponent implements OnInit {
 title: string = 'Request List';
 requests: Request[];
+requestLine
 
   constructor(private requestSvc: RequestService) { }
 
-  ngOnInit() {//populate list of vendors
+  ngOnInit() {//populate list of requests
     this.requestSvc.list().subscribe(
       resp =>{ this.requests = resp as Request[];
+
         console.log(this.requests);
         
       }

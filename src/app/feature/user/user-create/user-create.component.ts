@@ -20,7 +20,7 @@ title: string = 'User Create';
   create(){
     this.userSvc.create(this.user).subscribe( resp => {
       //success
-      alert('This user: '+this.user.username+'has been successfully created!');
+      alert('This user: '+this.user.username+' has been successfully created!');
       console.log(resp);
       this.router.navigateByUrl('/user/list');
     },

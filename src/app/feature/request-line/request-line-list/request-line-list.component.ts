@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RequestLineService } from '@svc/request-line.service';
+import { RequestLine } from '@model/requestline.class';
 
 @Component({
   selector: 'app-request-line-list',
@@ -6,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./request-line-list.component.css']
 })
 export class RequestLineListComponent implements OnInit {
+  title: string = 'Request Line List';
+  reqline: RequestLine[];
 
-  constructor() { }
+  constructor(private reqlineSvc: RequestLineService
+              ) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { //populate list of request lines
+    
+    this.reqlineSvc.list().subscribe(
+    resp =>{ this.reqline = resp as RequestLine[];
+      console.log(this.reqline);
 
+  })
+}
 }

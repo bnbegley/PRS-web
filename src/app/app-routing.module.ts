@@ -17,6 +17,10 @@ import { RequestEditComponent } from './feature/request/request-edit/request-edi
 import { RequestCreateComponent } from './feature/request/request-create/request-create.component';
 import { RequestListComponent } from './feature/request/request-list/request-list.component';
 import { UserAuthenticationComponent } from './feature/user/user-authentication/user-authentication.component';
+import { RequestLineDetailComponent } from './feature/request-line/request-line-detail/request-line-detail.component';
+import { RequestLineCreateComponent } from './feature/request-line/request-line-create/request-line-create.component';
+import { RequestLineEditComponent } from './feature/request-line/request-line-edit/request-line-edit.component';
+import { RequestLineListComponent } from './feature/request-line/request-line-list/request-line-list.component';
 
 
 
@@ -38,8 +42,12 @@ const routes: Routes = [
   { path: 'request/list', component: RequestListComponent},
   { path: 'request/create', component: RequestCreateComponent},
   { path: 'request/detail/:id', component: RequestDetailComponent},
-  { path: 'request/edit/:id', component: RequestEditComponent}
- 
+  { path: 'request/edit/:id', component: RequestEditComponent},
+  { path: 'requestline/list/:id', component: RequestLineListComponent},
+  { path: 'requestline/create', component: RequestLineCreateComponent},
+  { path: 'requestline/detail/:id', component: RequestLineDetailComponent},
+  { path: 'requestline/edit/:id', component: RequestLineEditComponent}, 
+
 ];
 
 @NgModule({
