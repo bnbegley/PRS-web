@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
 import { Request } from '@model/request.class';
 
 
@@ -31,4 +30,24 @@ edit(request:Request): Observable<any>{
 delete(id:number): Observable<any> {
       return this.http.delete(this.url+id);
 }
+
+setReview(id: number ) : Observable<any>{
+  return this.http.get("http://localhost:49951/api/setReview/" + id);
+
 }
+
+setApproved(id: number) : Observable<any> {
+  return this.http.get("http://localhost:49951/api/setApproved/" + id);
+}
+
+setRejected(id: number) : Observable<any> {
+  return this.http.get("http://localhost:49951/api/setRejected/" + id);
+}
+
+getForReview():  Observable<any> {
+  return this.http.get("http://localhost:49951/api/GetRequestsForReview");
+}
+
+}
+
+

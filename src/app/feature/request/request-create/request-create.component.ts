@@ -29,10 +29,10 @@ user: User;
   create(){ 
     this.request.userId=this.user.id;
     this.request.user=null;
-    this.request.status= 'New';
+    this.request.status= 'NEW';
     this.requestSvc.create(this.request).subscribe( resp => {
    //success
-   alert('This request: '+this.request+' has been successfully added!');
+ //alert('This request: '+this.request+' has been successfully added!');
    console.log(resp);
    this.router.navigateByUrl('/request/list');
  },

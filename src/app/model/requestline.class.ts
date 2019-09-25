@@ -10,15 +10,13 @@ vendor: Vendor;
 product: Product;
 
 
-constructor(id: number = 0, requestId: number = 0, productId: number = 0, quantity: number = 0,
-    vendor: Vendor = new Vendor(), product:Product = new Product()) {
+constructor(id: number = 0, requestId: number = 0, productId: number = 0, quantity: number = 0) {
 
         this.id = id;
         this.requestId=requestId;
         this.productId=productId;
         this.quantity=quantity;
-        this.vendor=vendor;
-        this.product=product;
+    
 
 }
 

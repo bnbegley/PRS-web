@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ProductService } from '../../../service/product.service';
-import { Product } from '../../../model/product.class';
-import { VendorService } from '../../../service/vendor.service';
-import { Vendor } from '../../../model/vendor.class';
+import { ProductService } from '@svc/product.service';
+import { Product } from '@model/product.class';
+import { VendorService } from '@svc/vendor.service';
+import { Vendor } from '@model/vendor.class';
 
 @Component({
   selector: 'app-product-edit',

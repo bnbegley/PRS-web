@@ -30,6 +30,9 @@ import { RequestCreateComponent } from './feature/request/request-create/request
 import { RequestEditComponent } from './feature/request/request-edit/request-edit.component';
 import { UserAuthenticationComponent } from './feature/user/user-authentication/user-authentication.component';
 import { VendorService } from '@svc/vendor.service';
+import { RequestLineService } from '@svc/request-line.service';
+import { RequestReviewComponent } from './feature/request/request-review/request-review.component';
+import { RequestReviewListComponent } from './feature/request/request-review-list/request-review-list.component';
 
 
 
@@ -58,7 +61,9 @@ import { VendorService } from '@svc/vendor.service';
     RequestDetailComponent,
     RequestCreateComponent,
     RequestEditComponent,
-    UserAuthenticationComponent
+    UserAuthenticationComponent,
+    RequestReviewComponent,
+    RequestReviewListComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +74,6 @@ import { VendorService } from '@svc/vendor.service';
   providers: [
     UserService,
     VendorService
-    
   ],
   bootstrap: [AppComponent]
 })

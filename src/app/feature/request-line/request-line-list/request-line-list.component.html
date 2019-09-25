@@ -1,1 +1,51 @@
-<p>request-line-list works!</p>
+<div>
+  <div class="heading">
+        <span class='component-title'>{{title}}</span>
+      </div>
+  <table *ngIf='request' class="table table-sm">
+    <thead>
+      <tr >
+        <td>Description</td>
+        <td>Status</td>
+        <td>Total</td>
+        <td>User</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ request.description }}</td>
+        <td>{{ request.status }}</td>
+        <td>{{ request.total | currency }}</td>
+        <td>{{ request.user.username }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <span *ngIf = "request"><a routerLink='/requestline/create/{{request.id}}'>
+    <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New'></a>
+    </span>
+  <table class="table table-sm">
+    <thead>
+      <tr class="colheading">
+        <td>Product</td>
+        <td>Quantity</td>
+        <td>Price</td>
+        <td>Line Total</td>
+        <td>Actions</td>
+      </tr>
+    </thead>
+    <tbody  *ngIf = 'request'>
+      <tr *ngFor="let rl of request.requestLines">
+        <td>{{ rl.product.name }}</td>
+        <td>{{ rl.quantity }}</td>
+        <td>{{ rl.product.price | currency }}</td>
+        <td>{{ rl.quantity * rl.product.price | currency }}</td>
+        <td>
+          <button class="btn btn-link" routerLink="/requestline/edit/{{rl.id}}">Edit</button> |
+          <button class="btn btn-link" (click)="remove(rl.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button (click)="submitForReview()" class="btn btn-primary">Submit For Review</button>
+</div>
+      

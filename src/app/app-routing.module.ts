@@ -21,11 +21,13 @@ import { RequestLineDetailComponent } from './feature/request-line/request-line-
 import { RequestLineCreateComponent } from './feature/request-line/request-line-create/request-line-create.component';
 import { RequestLineEditComponent } from './feature/request-line/request-line-edit/request-line-edit.component';
 import { RequestLineListComponent } from './feature/request-line/request-line-list/request-line-list.component';
+import { RequestReviewComponent } from './feature/request/request-review/request-review.component';
+import { RequestReviewListComponent } from './feature/request/request-review-list/request-review-list.component';
 
 
 
 const routes: Routes = [
-  { path: '', redirectTo : '/user/list', pathMatch: 'full' },
+  { path: '', redirectTo : '/user/authentication', pathMatch: 'full' },
   { path: 'user/list', component: UserListComponent},
   { path: 'user/create', component: UserCreateComponent},
   { path: 'user/detail/:id', component: UserDetailComponent},
@@ -44,10 +46,11 @@ const routes: Routes = [
   { path: 'request/detail/:id', component: RequestDetailComponent},
   { path: 'request/edit/:id', component: RequestEditComponent},
   { path: 'requestline/list/:id', component: RequestLineListComponent},
-  { path: 'requestline/create', component: RequestLineCreateComponent},
+  { path: 'requestline/create/:id', component: RequestLineCreateComponent},
   { path: 'requestline/detail/:id', component: RequestLineDetailComponent},
   { path: 'requestline/edit/:id', component: RequestLineEditComponent}, 
-
+  { path: 'requestline/review/:id', component : RequestReviewComponent},
+  { path: 'request/review' , component : RequestReviewListComponent}
 ];
 
 @NgModule({

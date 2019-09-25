@@ -11,7 +11,7 @@ import { Product } from '@model/product.class';
 export class ProductService {
 url: string = 'http://localhost:49951/api/ProductsAPI/';
   constructor(private http: HttpClient) {
-
+     
   }
   
   list(): Observable<Product[]> {

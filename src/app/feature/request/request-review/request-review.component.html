@@ -1,0 +1,60 @@
+<div>
+    <div class="heading">
+          <span class='component-title'>{{title}}</span>
+        </div>
+    <table *ngIf='request' class="table table-sm">
+      <thead>
+        <tr >
+          <td>Description</td>
+          <td>Status</td>
+          <td>Total</td>
+          <td>User</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ request.description }}</td>
+          <td>{{ request.status }}</td>
+          <td>{{ request.total | currency }}</td>
+          <td>{{ request.user.username }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <span *ngIf = "request"><a routerLink='/requestline/create/{{request.id}}'></a>
+      </span>
+    <table class="table table-sm">
+      <thead>
+        <tr class="colheading">
+          <td>Product</td>
+          <td>Quantity</td>
+          <td>Price</td>
+          <td>Line Total</td>
+        </tr>
+      </thead>
+      <tbody  *ngIf = 'request'>
+        <tr *ngFor="let rl of request.requestLines">
+          <td>{{ rl.product.name }}</td>
+          <td>{{ rl.quantity }}</td>
+          <td>{{ rl.product.price | currency }}</td>
+          <td>{{ rl.quantity * rl.product.price | currency }}</td>
+        </tr>
+      </tbody>
+    </table>
+<table>
+  <tr>
+      <td>
+        </td>
+    <td>
+    <input [(ngModel)]='this.request.rejectionReason' type="text"  id="rejection reason" placeholder = "Rejection Reason">
+  </td>
+  </tr>
+  <tr>
+    <td>
+    <button (click)="setApprove()" class="btn btn-primary">Approve</button>
+  </td>
+  <td>
+    <button (click)="setReject()" class="btn btn-primary">Reject</button>
+  </td>
+  </tr>
+  </table>
+  </div>
